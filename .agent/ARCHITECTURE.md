@@ -9,8 +9,8 @@
 Antigravity Kit is a modular system consisting of:
 
 - **25 Specialist Agents** - Role-based AI personas
-- **40 Skills** - Domain-specific knowledge modules
-- **16 Workflows** - Slash command procedures
+- **42 Skills** - Domain-specific knowledge modules
+- **32 Workflows** - Slash command procedures
 
 ---
 
@@ -20,8 +20,8 @@ Antigravity Kit is a modular system consisting of:
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 25 Specialist Agents
-├── skills/                  # 40 Skills
-├── workflows/               # 16 Slash Commands
+├── skills/                  # 42 Skills
+├── workflows/               # 32 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
 ```
@@ -62,7 +62,7 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (40)
+## 🧩 Skills (42)
 
 Modular knowledge domains that agents can load on-demand. based on task context.
 
@@ -166,6 +166,13 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 | ------------------------- | -------------------------------------------- |
 | `git-master`              | Atomic commits, rebase, history investigation|
 
+### Project Management
+
+| Skill                     | Description                                                      |
+| ------------------------- | ---------------------------------------------------------------- |
+| `conductor`               | Context-driven development, spec-first coding, TDD tracks        |
+| `beads`                   | Git-backed issue tracker, multi-session work, persistent memory  |
+
 ### Other
 
 | Skill                     | Description               |
@@ -181,9 +188,11 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ---
 
-## 🔄 Workflows (16)
+## 🔄 Workflows (32)
 
 Slash command procedures. Invoke with `/command`.
+
+### Core Workflows
 
 | Command          | Description                         |
 | ---------------- | ----------------------------------- |
@@ -203,6 +212,27 @@ Slash command procedures. Invoke with `/command`.
 | `/start-work`    | Execute from planner-generated plan |
 | `/refactor`      | Intelligent refactoring with TDD    |
 | `/handoff`       | Session context transfer            |
+
+### Conductor Workflows
+
+| Command                | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `/conductor-setup`     | Initialize project with Conductor        |
+| `/conductor-newtrack`  | Create new feature/bug track with spec   |
+| `/conductor-implement` | Execute tasks from track plan            |
+| `/conductor-status`    | Display project progress                 |
+| `/conductor-revert`    | Git-aware revert of tracks/phases/tasks  |
+| `/conductor-validate`  | Validate project integrity               |
+| `/conductor-block`     | Mark task as blocked with reason         |
+| `/conductor-skip`      | Skip current task with reason            |
+| `/conductor-revise`    | Update spec/plan for implementation issues|
+| `/conductor-archive`   | Archive completed tracks                 |
+| `/conductor-export`    | Export project summary as markdown       |
+| `/conductor-handoff`   | Create context handoff for next session  |
+| `/conductor-refresh`   | Sync context docs with codebase state    |
+| `/conductor-formula`   | Manage track workflow templates          |
+| `/conductor-distill`   | Extract reusable template from track     |
+| `/conductor-wisp`      | Quick ephemeral exploration track        |
 
 ---
 
@@ -285,8 +315,8 @@ For details, see [scripts/README.md](scripts/README.md)
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 25                            |
-| **Total Skills**    | 40                            |
-| **Total Workflows** | 16                            |
+| **Total Skills**    | 42                            |
+| **Total Workflows** | 32                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~95% web/mobile development   |
 
