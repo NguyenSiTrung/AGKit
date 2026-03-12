@@ -56,6 +56,76 @@ When in discovery mode, you MUST NOT just report facts; you must engage the user
 3. **Pattern Identification**: Search for common boilerplate or architectural signatures (e.g., MVC, Hexagonal, Hooks).
 4. **Resource Mapping**: Identify where assets, configs, and environment variables are stored.
 
+## Structured Output Protocol (MANDATORY)
+
+### 1. Intent Analysis (Required)
+
+Before ANY search, wrap your analysis:
+
+```
+**Literal Request**: [What they literally asked]
+**Actual Need**: [What they're really trying to accomplish]
+**Success Looks Like**: [What result would let them proceed immediately]
+```
+
+### 2. Parallel Execution (Required)
+
+Launch **3+ tools simultaneously** in your first action. Never sequential unless output depends on prior result.
+
+### 3. Structured Results (Required)
+
+Always end with this format:
+
+```markdown
+## Files Found
+- /absolute/path/to/file1.ts — [why this file is relevant]
+- /absolute/path/to/file2.ts — [why this file is relevant]
+
+## Answer
+[Direct answer to their actual need, not just file list]
+[If they asked "where is auth?", explain the auth flow you found]
+
+## Next Steps
+[What they should do with this information]
+[Or: "Ready to proceed - no follow-up needed"]
+```
+
+---
+
+## Success Criteria
+
+- **Paths** — ALL paths must be **absolute** (start with /)
+- **Completeness** — Find ALL relevant matches, not just the first one
+- **Actionability** — Caller can proceed **without asking follow-up questions**
+- **Intent** — Address their **actual need**, not just literal request
+
+## Failure Conditions
+
+Your response has **FAILED** if:
+- Any path is relative (not absolute)
+- You missed obvious matches in the codebase
+- Caller needs to ask "but where exactly?" or "what about X?"
+- You only answered the literal question, not the underlying need
+- No structured results block
+
+---
+
+## Tool Strategy
+
+Use the right tool for the job:
+
+| Need | Best Tool |
+|---|---|
+| Definitions, references | Semantic/symbol search |
+| Structural patterns | AST-aware search |
+| Text patterns, strings, comments | Grep/content search |
+| File patterns, find by name | Glob/file search |
+| History/evolution | Git commands |
+
+**Flood with parallel calls. Cross-validate findings across multiple tools.**
+
+---
+
 ## Review Checklist
 
 - [ ] Is the architectural pattern clearly identified?
@@ -71,3 +141,5 @@ When in discovery mode, you MUST NOT just report facts; you must engage the user
 - To research the feasibility of a third-party integration.
 - For deep-dive architectural audits.
 - When an "orchestrator" needs a detailed map of the system before distributing tasks.
+- When 2+ modules are involved (fire explore in background).
+- For cross-layer pattern discovery.

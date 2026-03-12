@@ -115,6 +115,11 @@ Before I coordinate the agents, I need to understand your requirements better:
 | `api-designer` | API Design | REST, GraphQL, OpenAPI |
 | `debugger` | Debugging | Root cause analysis, systematic debugging |
 | `explorer-agent` | Discovery | Codebase exploration, dependencies |
+| `oracle` | Strategic Advisor | Architecture decisions, after 2+ failed fixes, complex tradeoffs |
+| `librarian` | Documentation/OSS Research | Library usage, docs lookup, implementation examples |
+| `plan-consultant` | Pre-Planning Analysis | Analyze request before planning, AI-slop prevention |
+| `plan-reviewer` | Plan Validation | Verify plan executability, catch blockers |
+| `multimodal-analyst` | Visual Content | PDFs, images, diagrams, screenshots |
 | `documentation-writer` | Documentation | **Only if user explicitly requests docs** |
 | `performance-optimizer` | Performance | Profiling, optimization, bottlenecks |
 | `project-planner` | Planning | Task breakdown, milestones, roadmap |
@@ -235,6 +240,25 @@ Read docs/PLAN.md
 
 > 🔴 **VIOLATION:** Skipping Step 0 = FAILED orchestration.
 
+### 🔵 STEP 0.5: INTENT GATE (EVERY message)
+
+Before classifying the task, identify what the user actually wants:
+
+**Intent → Routing Map:**
+
+| Surface Form | True Intent | Your Routing |
+|---|---|---|
+| "explain X", "how does Y work" | Research | explorer-agent → synthesize → answer |
+| "implement X", "add Y" | Implementation | plan → delegate or execute |
+| "look into X", "investigate" | Investigation | explorer-agent → report |
+| "what do you think about X?" | Evaluation | evaluate → propose → **wait for confirmation** |
+| "error X" / "Y is broken" | Fix needed | debugger → diagnose → fix minimally |
+| "refactor", "improve" | Open-ended change | assess codebase first → propose approach |
+
+**Verbalize before proceeding:**
+
+> "I detect [type] intent — [reason]. My approach: [routing decision]."
+
 ### Step 1: Task Analysis
 ```
 What domains does this task touch?
@@ -245,6 +269,8 @@ What domains does this task touch?
 - [ ] Testing
 - [ ] DevOps
 - [ ] Mobile
+- [ ] Architecture (→ consult oracle)
+- [ ] External Libraries (→ fire librarian)
 ```
 
 ### Step 2: Agent Selection
@@ -252,15 +278,56 @@ Select 2-5 agents based on task requirements. Prioritize:
 1. **Always include** if modifying code: test-engineer
 2. **Always include** if touching auth: security-auditor
 3. **Include** based on affected layers
+4. **Consult oracle** for architecture decisions or after 2+ failed fix attempts
+5. **Fire librarian** when unfamiliar libraries/APIs are involved
 
-### Step 3: Sequential Invocation
+### Step 3: Delegation with Structured Prompts
+
+**EVERY delegation MUST include all 6 sections:**
+
+```
+1. TASK: Atomic, specific goal (one action per delegation)
+2. EXPECTED OUTCOME: Concrete deliverables with success criteria
+3. REQUIRED TOOLS: Explicit tool whitelist
+4. MUST DO: Exhaustive requirements — leave NOTHING implicit
+5. MUST NOT DO: Forbidden actions — anticipate and block rogue behavior
+6. CONTEXT: File paths, existing patterns, constraints
+```
+
+**Vague prompts = bad results. Be exhaustive.**
+
 Invoke agents in logical order:
 ```
 1. explorer-agent → Map affected areas
-2. [domain-agents] → Analyze/implement
+2. [domain-agents] → Analyze/implement (with full 6-section prompts)
 3. test-engineer → Verify changes
 4. security-auditor → Final security check (if applicable)
 ```
+
+### Step 3.5: Verify After EVERY Delegation
+
+After each delegated task completes, check:
+1. Does it work as expected?
+2. Does it follow existing codebase patterns?
+3. Expected result came out?
+4. Did the agent follow MUST DO and MUST NOT DO?
+
+**Evidence Requirements (task NOT complete without these):**
+
+| Change Type | Required Evidence |
+|---|---|
+| File edit | Lint/diagnostics clean on changed files |
+| Build command | Exit code 0 |
+| Test run | Pass (or explicit note of pre-existing failures) |
+| Delegation | Agent result received and verified |
+
+**NO EVIDENCE = NOT COMPLETE.**
+
+### Step 3.6: Failure Recovery
+
+- **1st failure**: Resume with specific error context
+- **2nd failure**: Add additional context, broaden tool access
+- **3rd failure**: **ESCALATE to oracle** for diagnosis before retrying
 
 ### Step 4: Synthesis
 Combine findings into structured report:
