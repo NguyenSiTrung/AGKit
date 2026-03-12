@@ -8,9 +8,9 @@
 
 Antigravity Kit is a modular system consisting of:
 
-- **20 Specialist Agents** - Role-based AI personas
-- **36 Skills** - Domain-specific knowledge modules
-- **11 Workflows** - Slash command procedures
+- **25 Specialist Agents** - Role-based AI personas
+- **40 Skills** - Domain-specific knowledge modules
+- **16 Workflows** - Slash command procedures
 
 ---
 
@@ -19,22 +19,22 @@ Antigravity Kit is a modular system consisting of:
 ```plaintext
 .agent/
 ├── ARCHITECTURE.md          # This file
-├── agents/                  # 20 Specialist Agents
-├── skills/                  # 36 Skills
-├── workflows/               # 11 Slash Commands
+├── agents/                  # 25 Specialist Agents
+├── skills/                  # 40 Skills
+├── workflows/               # 16 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
 ```
 
 ---
 
-## 🤖 Agents (20)
+## 🤖 Agents (25)
 
 Specialist AI personas for different domains.
 
 | Agent                    | Focus                      | Skills Used                                              |
 | ------------------------ | -------------------------- | -------------------------------------------------------- |
-| `orchestrator`           | Multi-agent coordination   | parallel-agents, behavioral-modes                        |
+| `orchestrator`           | Multi-agent coordination   | parallel-agents, behavioral-modes, delegation-patterns   |
 | `project-planner`        | Discovery, task planning   | brainstorming, plan-writing, architecture                |
 | `frontend-specialist`    | Web UI/UX                  | frontend-design, react-best-practices, tailwind-patterns |
 | `backend-specialist`     | API, business logic        | api-patterns, nodejs-best-practices, database-design     |
@@ -53,11 +53,16 @@ Specialist AI personas for different domains.
 | `product-owner`          | Strategy, backlog, MVP     | plan-writing, brainstorming                              |
 | `qa-automation-engineer` | E2E testing, CI pipelines  | webapp-testing, testing-patterns                         |
 | `code-archaeologist`     | Legacy code, refactoring   | clean-code, code-review-checklist                        |
-| `explorer-agent`         | Codebase analysis          | -                                                        |
+| `explorer-agent`         | Codebase analysis          | architecture, systematic-debugging                       |
+| `oracle`                 | Strategic technical advisor | architecture, systematic-debugging                       |
+| `librarian`              | OSS docs & research        | documentation-templates                                  |
+| `plan-consultant`        | Pre-planning analysis      | brainstorming, architecture                              |
+| `plan-reviewer`          | Plan validation            | plan-writing, code-review-checklist                      |
+| `multimodal-analyst`     | Visual content analysis    | -                                                        |
 
 ---
 
-## 🧩 Skills (36)
+## 🧩 Skills (40)
 
 Modular knowledge domains that agents can load on-demand. based on task context.
 
@@ -120,12 +125,14 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ### Architecture & Planning
 
-| Skill           | Description                |
-| --------------- | -------------------------- |
-| `app-builder`   | Full-stack app scaffolding |
-| `architecture`  | System design patterns     |
-| `plan-writing`  | Task planning, breakdown   |
-| `brainstorming` | Socratic questioning       |
+| Skill                    | Description                            |
+| ------------------------ | -------------------------------------- |
+| `app-builder`            | Full-stack app scaffolding             |
+| `architecture`           | System design patterns                 |
+| `plan-writing`           | Task planning, breakdown               |
+| `brainstorming`          | Socratic questioning                   |
+| `intent-classification`  | Request analysis, intent routing       |
+| `delegation-patterns`    | Agent delegation protocol, task routing|
 
 ### Mobile
 
@@ -153,6 +160,12 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 | `bash-linux`         | Linux commands, scripting |
 | `powershell-windows` | Windows PowerShell        |
 
+### Git & DevOps
+
+| Skill                     | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| `git-master`              | Atomic commits, rebase, history investigation|
+
 ### Other
 
 | Skill                     | Description               |
@@ -168,23 +181,28 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 
 ---
 
-## 🔄 Workflows (11)
+## 🔄 Workflows (16)
 
 Slash command procedures. Invoke with `/command`.
 
-| Command          | Description              |
-| ---------------- | ------------------------ |
-| `/brainstorm`    | Socratic discovery       |
-| `/create`        | Create new features      |
-| `/debug`         | Debug issues             |
-| `/deploy`        | Deploy application       |
-| `/enhance`       | Improve existing code    |
-| `/orchestrate`   | Multi-agent coordination |
-| `/plan`          | Task breakdown           |
-| `/preview`       | Preview changes          |
-| `/status`        | Check project status     |
-| `/test`          | Run tests                |
-| `/ui-ux-pro-max` | Design with 50 styles    |
+| Command          | Description                         |
+| ---------------- | ----------------------------------- |
+| `/brainstorm`    | Socratic discovery                  |
+| `/create`        | Create new features                 |
+| `/debug`         | Debug issues                        |
+| `/deploy`        | Deploy application                  |
+| `/enhance`       | Improve existing code               |
+| `/orchestrate`   | Multi-agent coordination            |
+| `/plan`          | Task breakdown                      |
+| `/preview`       | Preview changes                     |
+| `/status`        | Check project status                |
+| `/test`          | Run tests                           |
+| `/ui-ux-pro-max` | Design with 50 styles               |
+| `/init-deep`     | Deep context initialization         |
+| `/ralph-loop`    | Continuous dev loop until completion|
+| `/start-work`    | Execute from planner-generated plan |
+| `/refactor`      | Intelligent refactoring with TDD    |
+| `/handoff`       | Session context transfer            |
 
 ---
 
@@ -266,23 +284,30 @@ For details, see [scripts/README.md](scripts/README.md)
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
-| **Total Agents**    | 20                            |
-| **Total Skills**    | 36                            |
-| **Total Workflows** | 11                            |
+| **Total Agents**    | 25                            |
+| **Total Skills**    | 40                            |
+| **Total Workflows** | 16                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
-| **Coverage**        | ~90% web/mobile development   |
+| **Coverage**        | ~95% web/mobile development   |
 
 ---
 
 ## 🔗 Quick Reference
 
-| Need     | Agent                 | Skills                                |
-| -------- | --------------------- | ------------------------------------- |
-| Web App  | `frontend-specialist` | react-best-practices, frontend-design |
-| API      | `backend-specialist`  | api-patterns, nodejs-best-practices   |
-| Mobile   | `mobile-developer`    | mobile-design                         |
-| Database | `database-architect`  | database-design, prisma-expert        |
-| Security | `security-auditor`    | vulnerability-scanner                 |
-| Testing  | `test-engineer`       | testing-patterns, webapp-testing      |
-| Debug    | `debugger`            | systematic-debugging                  |
-| Plan     | `project-planner`     | brainstorming, plan-writing           |
+| Need           | Agent                 | Skills                                |
+| -------------- | --------------------- | ------------------------------------- |
+| Web App        | `frontend-specialist` | react-best-practices, frontend-design |
+| API            | `backend-specialist`  | api-patterns, nodejs-best-practices   |
+| Mobile         | `mobile-developer`    | mobile-design                         |
+| Database       | `database-architect`  | database-design, prisma-expert        |
+| Security       | `security-auditor`    | vulnerability-scanner                 |
+| Testing        | `test-engineer`       | testing-patterns, webapp-testing      |
+| Debug          | `debugger`            | systematic-debugging                  |
+| Plan           | `project-planner`     | brainstorming, plan-writing           |
+| Architecture   | `oracle`              | architecture, systematic-debugging    |
+| Research       | `librarian`           | documentation-templates               |
+| Pre-Analysis   | `plan-consultant`     | brainstorming, architecture           |
+| Plan Review    | `plan-reviewer`       | plan-writing, code-review-checklist   |
+| Visual Content | `multimodal-analyst`  | -                                     |
+| Git Workflow   | (any agent)           | git-master                            |
+| Orchestration  | `orchestrator`        | delegation-patterns, intent-classification |
