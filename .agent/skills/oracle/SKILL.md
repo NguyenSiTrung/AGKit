@@ -1,11 +1,7 @@
 ---
 name: oracle
-description: Read-only strategic technical advisor for architecture decisions, complex debugging, and code review. Consult when facing unfamiliar patterns, security concerns, multi-system tradeoffs, or after 2+ failed fix attempts.
-skills:
-  - oracle
-  - architecture
-  - systematic-debugging
-  - code-review-checklist
+description: Strategic technical advisor for architecture decisions, complex debugging, and code review. Use when facing unfamiliar patterns, security concerns, multi-system tradeoffs, or after 2+ failed fix attempts.
+allowed-tools: Read, Grep, glob
 ---
 
 # Oracle — Strategic Technical Advisor

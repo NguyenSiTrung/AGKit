@@ -9,7 +9,7 @@
 Antigravity Kit is a modular system consisting of:
 
 - **25 Specialist Agents** - Role-based AI personas
-- **42 Skills** - Domain-specific knowledge modules
+- **42 Skills** - Domain-specific knowledge modules (includes oracle & librarian)
 - **32 Workflows** - Slash command procedures
 
 ---
@@ -54,8 +54,8 @@ Specialist AI personas for different domains.
 | `qa-automation-engineer` | E2E testing, CI pipelines  | webapp-testing, testing-patterns                         |
 | `code-archaeologist`     | Legacy code, refactoring   | clean-code, code-review-checklist                        |
 | `explorer-agent`         | Codebase analysis          | architecture, systematic-debugging                       |
-| `oracle`                 | Strategic technical advisor | architecture, systematic-debugging                       |
-| `librarian`              | OSS docs & research        | documentation-templates                                  |
+| `oracle`                 | Strategic technical advisor | oracle, architecture, systematic-debugging               |
+| `librarian`              | OSS docs & research        | librarian, documentation-templates                       |
 | `plan-consultant`        | Pre-planning analysis      | brainstorming, architecture                              |
 | `plan-reviewer`          | Plan validation            | plan-writing, code-review-checklist                      |
 | `multimodal-analyst`     | Visual content analysis    | -                                                        |
@@ -172,6 +172,13 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 | ------------------------- | ---------------------------------------------------------------- |
 | `conductor`               | Context-driven development, spec-first coding, TDD tracks        |
 | `beads`                   | Git-backed issue tracker, multi-session work, persistent memory  |
+
+### Advisory & Research
+
+| Skill                     | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| `oracle`                  | Strategic technical advisor, architecture decisions    |
+| `librarian`               | OSS documentation lookup, multi-repo research         |
 
 ### Other
 

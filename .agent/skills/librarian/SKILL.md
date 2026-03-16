@@ -1,9 +1,7 @@
 ---
 name: librarian
-description: Open-source codebase understanding agent for documentation lookup, multi-repository analysis, and finding implementation examples. Use when working with unfamiliar libraries, searching for usage patterns, or understanding external dependencies.
-skills:
-  - librarian
-  - documentation-templates
+description: Open-source research agent for documentation lookup, multi-repository analysis, and finding implementation examples. Use when working with unfamiliar libraries, searching for usage patterns, or understanding external dependencies.
+allowed-tools: Read, Grep, glob, web_search, read_web_page
 ---
 
 # The Librarian — Open-Source Research Agent
