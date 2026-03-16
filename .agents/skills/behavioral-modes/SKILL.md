@@ -228,6 +228,21 @@ Behavior for creating and loading "Mental Model" summaries to preserve context b
 
 ## Combining Modes
 
+Complex tasks often require blending modes sequentially:
+
+| Scenario | Mode Flow |
+|----------|-----------|
+| New feature request | BRAINSTORM → IMPLEMENT → REVIEW |
+| Production bug | DEBUG → IMPLEMENT → SHIP |
+| Architecture redesign | BRAINSTORM → REVIEW → IMPLEMENT |
+| Onboarding + build | TEACH → BRAINSTORM → IMPLEMENT |
+| Release prep | REVIEW → SHIP |
+
+**Rules:**
+- One primary mode at a time — don't mix DEBUG and IMPLEMENT simultaneously
+- Transition explicitly: finish current mode's output before switching
+- SHIP mode is always the final gate before production
+
 ---
 
 ## Manual Mode Switching

@@ -4,13 +4,9 @@ description: Multi-agent orchestration patterns. Use when multiple independent t
 allowed-tools: Read, Glob, Grep
 ---
 
-# Native Parallel Agents
+# Parallel Agents — Multi-Agent Orchestration
 
-> Orchestration through Antigravity's built-in Agent Tool
-
-## Overview
-
-This skill enables coordinating multiple specialized agents through Antigravity's native agent system. Unlike external scripts, this approach keeps all orchestration within Antigravity's control.
+> Coordinate multiple specialized agents for comprehensive analysis and implementation.
 
 ## When to Use Orchestration
 
@@ -27,72 +23,81 @@ This skill enables coordinating multiple specialized agents through Antigravity'
 
 ---
 
-## Native Agent Invocation
-
-### Single Agent
-```
-Use the security-auditor agent to review authentication
-```
-
-### Sequential Chain
-```
-First, use the explorer-agent to discover project structure.
-Then, use the backend-specialist to review API endpoints.
-Finally, use the test-engineer to identify test gaps.
-```
-
-### With Context Passing
-```
-Use the frontend-specialist to analyze React components.
-Based on those findings, have the test-engineer generate component tests.
-```
-
-### Resume Previous Work
-```
-Resume agent [agentId] and continue with additional requirements.
-```
-
----
-
 ## Orchestration Patterns
 
 ### Pattern 1: Comprehensive Analysis
-```
-Agents: explorer-agent → [domain-agents] → synthesis
 
-1. explorer-agent: Map codebase structure
-2. security-auditor: Security posture
-3. backend-specialist: API quality
-4. frontend-specialist: UI/UX patterns
-5. test-engineer: Test coverage
+```
+Agents: explorer → [domain-agents] → synthesis
+
+1. Explorer: Map codebase structure
+2. Security auditor: Security posture
+3. Backend specialist: API quality
+4. Frontend specialist: UI/UX patterns
+5. Test engineer: Test coverage
 6. Synthesize all findings
 ```
 
-### Pattern 2: Feature Review
+### Pattern 2: Feature Implementation
+
 ```
 Agents: affected-domain-agents → test-engineer
 
 1. Identify affected domains (backend? frontend? both?)
-2. Invoke relevant domain agents
-3. test-engineer verifies changes
+2. Invoke relevant domain agents in parallel
+3. Test engineer verifies changes
 4. Synthesize recommendations
 ```
 
 ### Pattern 3: Security Audit
+
 ```
 Agents: security-auditor → penetration-tester → synthesis
 
-1. security-auditor: Configuration and code review
-2. penetration-tester: Active vulnerability testing
+1. Security auditor: Configuration and code review
+2. Penetration tester: Active vulnerability testing
 3. Synthesize with prioritized remediation
 ```
 
 ---
 
-## Available Agents
+## Agent Invocation
 
-| Agent | Expertise | Trigger Phrases |
-|-------|-----------|-----------------|
+### Single Agent
+```
+Dispatch a security review of the authentication module.
+```
+
+### Sequential Chain
+```
+1. Discover project structure
+2. Review API endpoints
+3. Identify test gaps
+```
+
+### Parallel Dispatch
+```
+PARALLEL (no dependencies):
+  → Agent A: Frontend component
+  → Agent B: Backend API endpoint
+  → Agent C: Test scaffolding
+
+SEQUENTIAL (after parallel completes):
+  → Agent D: Integration testing
+```
+
+### With Context Passing
+```
+1. Analyze React components → findings
+2. Based on findings, generate component tests
+```
+
+---
+
+## Available Specialist Roles
+
+| Role | Expertise | Trigger Phrases |
+|------|-----------|-----------------|
 | `orchestrator` | Coordination | "comprehensive", "multi-perspective" |
 | `security-auditor` | Security | "security", "auth", "vulnerabilities" |
 | `penetration-tester` | Security Testing | "pentest", "red team", "exploit" |
@@ -105,25 +110,11 @@ Agents: security-auditor → penetration-tester → synthesis
 | `api-designer` | API Design | "REST", "GraphQL", "OpenAPI" |
 | `debugger` | Debugging | "bug", "error", "not working" |
 | `explorer-agent` | Discovery | "explore", "map", "structure" |
-| `documentation-writer` | Documentation | "write docs", "create README", "generate API docs" |
+| `documentation-writer` | Documentation | "write docs", "create README" |
 | `performance-optimizer` | Performance | "slow", "optimize", "profiling" |
 | `project-planner` | Planning | "plan", "roadmap", "milestones" |
 | `seo-specialist` | SEO | "SEO", "meta tags", "search ranking" |
 | `game-developer` | Game Development | "game", "Unity", "Godot", "Phaser" |
-
----
-
-## Antigravity Built-in Agents
-
-These work alongside custom agents:
-
-| Agent | Model | Purpose |
-|-------|-------|---------|
-| **Explore** | Haiku | Fast read-only codebase search |
-| **Plan** | Sonnet | Research during plan mode |
-| **General-purpose** | Sonnet | Complex multi-step modifications |
-
-Use **Explore** for quick searches, **custom agents** for domain expertise.
 
 ---
 
@@ -158,18 +149,20 @@ After all agents complete, synthesize:
 
 ## Best Practices
 
-1. **Available agents** - 17 specialized agents can be orchestrated
-2. **Logical order** - Discovery → Analysis → Implementation → Testing
-3. **Share context** - Pass relevant findings to subsequent agents
-4. **Single synthesis** - One unified report, not separate outputs
-5. **Verify changes** - Always include test-engineer for code modifications
+1. **Logical order** — Discovery → Analysis → Implementation → Testing
+2. **Share context** — Pass relevant findings to subsequent agents
+3. **Single synthesis** — One unified report, not separate outputs
+4. **Verify changes** — Always include test-engineer for code modifications
+5. **Minimize parallelism risk** — Only parallelize truly independent tasks
 
 ---
 
-## Key Benefits
+## Anti-Patterns
 
-- ✅ **Single session** - All agents share context
-- ✅ **AI-controlled** - Claude orchestrates autonomously
-- ✅ **Native integration** - Works with built-in Explore, Plan agents
-- ✅ **Resume support** - Can continue previous agent work
-- ✅ **Context passing** - Findings flow between agents
+| ❌ Don't | ✅ Do |
+|----------|-------|
+| Parallelize dependent tasks | Identify dependencies first |
+| Skip synthesis step | Always consolidate findings |
+| Dispatch without clear scope | Each agent gets specific task + criteria |
+| Over-orchestrate simple tasks | Single agent for single-domain work |
+| Forward full session to agents | Context isolation per agent |
