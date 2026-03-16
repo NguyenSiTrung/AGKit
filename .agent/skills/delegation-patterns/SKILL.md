@@ -1,6 +1,6 @@
 ---
 name: delegation-patterns
-description: Agent delegation protocol for multi-agent orchestration. Covers structured delegation prompts, category-based task routing, session continuity, and verification after delegation. Essential for orchestrator and planner agents.
+description: Use when delegating tasks to specialized agents or coordinating multi-agent work. Essential for orchestrator and planner agents.
 ---
 
 # Delegation Patterns — Agent Orchestration Protocol
@@ -18,6 +18,34 @@ Before acting on ANY task, run this check:
 1. Is there a specialized agent that perfectly matches this request?
 2. If not, what category best describes this task?
 3. Can I do it myself for the best result, FOR SURE? Really?
+
+---
+
+## Context Isolation Principle (CRITICAL)
+
+**Subagents MUST NEVER inherit the parent session's context or history.**
+
+When delegating, the dispatcher constructs exactly what each subagent needs from scratch:
+- The task specification
+- The relevant code/files
+- The review criteria
+- Nothing else
+
+### Why This Matters
+
+Without context isolation, subagents:
+- Inherit the dispatcher's internal reasoning and tone
+- Act as the lead developer rather than an independent reviewer
+- Reject reasonable code for matching unstated preferences
+- Demand rewrites beyond scope
+- Treat advisory feedback as blocking
+
+### How to Apply
+
+1. **Never forward session history** to a subagent
+2. **Construct the prompt from scratch** with only what's needed
+3. **Include the spec, the code, and the criteria** -- not your thought process
+4. **Keep reviewers focused on the work product**, not the process that produced it
 
 ---
 

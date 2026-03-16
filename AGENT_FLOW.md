@@ -528,7 +528,7 @@ User Request: "Build a Next.js dashboard with authentication"
 │                    SYSTEM CAPABILITIES                    │
 ├──────────────────────────────────────────────────────────┤
 │ Total Agents:              20                            │
-│ Total Skills:              36                            │
+│ Total Skills:              47                            │
 │ Total Workflows:           11                            │
 │ Master Scripts:            2 (checklist, verify_all)     │
 │ Skill-Level Scripts:       18                            │

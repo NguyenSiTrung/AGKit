@@ -16,7 +16,7 @@
 This fork includes enhancements and additions on top of the original Antigravity Kit:
 
 - **25 Specialist Agents** — including `oracle`, `librarian`, `plan-consultant`, `plan-reviewer`, and `multimodal-analyst` (ported from OmO patterns)
-- **42 Skills** — expanded skill library with `conductor`, `beads`, `intelligent-routing`, `intent-classification`, `delegation-patterns`, and more
+- **47 Skills** — expanded skill library with `conductor`, `beads`, `subagent-driven-development`, `verification-before-completion`, `using-git-worktrees`, `finishing-a-development-branch`, `receiving-code-review`, and more
 - **32 Workflows** — full Conductor methodology support for context-driven development across sessions
 
 ---
@@ -45,7 +45,7 @@ git clone https://github.com/NguyenSiTrung/AGKit.git
 | Component      | Count | Description                                                          |
 | -------------- | ----- | -------------------------------------------------------------------- |
 | **Agents**     | 25    | Specialist AI personas (frontend, backend, security, PM, QA, etc.)   |
-| **Skills**     | 42    | Domain-specific knowledge modules                                    |
+| **Skills**     | 47    | Domain-specific knowledge modules                                    |
 | **Workflows**  | 32    | Slash command procedures                                             |
 
 ---
@@ -192,6 +192,19 @@ Skills are loaded automatically based on task context. Organized by domain:
 </details>
 
 <details>
+<summary><strong>Development Workflow</strong> (5 skills, ported from obra/superpowers)</summary>
+
+| Skill                            | Description                                              |
+| -------------------------------- | -------------------------------------------------------- |
+| `subagent-driven-development`    | Dispatch subagent per task with two-stage review          |
+| `verification-before-completion` | Evidence-based verification before declaring done         |
+| `using-git-worktrees`            | Isolated worktree workspaces for feature development      |
+| `finishing-a-development-branch` | Structured branch completion: verify, merge/PR, cleanup   |
+| `receiving-code-review`          | How to respond to PR review feedback                      |
+
+</details>
+
+<details>
 <summary><strong>Other</strong> (16 skills)</summary>
 
 | Skill                     | Description                 |
@@ -270,7 +283,7 @@ Invoke with slash commands in your AI editor:
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 25                            |
-| **Total Skills**    | 42                            |
+| **Total Skills**    | 47                            |
 | **Total Workflows** | 32                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~95% web/mobile development   |

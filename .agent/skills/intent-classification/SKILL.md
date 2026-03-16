@@ -1,6 +1,6 @@
 ---
 name: intent-classification
-description: Request intent analysis protocol. Classifies user requests by true intent (not surface form), validates before acting, and routes to the right approach. Used by orchestrators and planners.
+description: Use when analyzing user request intent before acting. Classifies by true intent, not surface form. Used by orchestrators and planners.
 ---
 
 # Intent Classification — Request Analysis Protocol

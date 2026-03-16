@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: Socratic questioning protocol + user communication. MANDATORY for complex requests, new features, or unclear requirements. Includes progress reporting and error handling.
+description: Use when receiving complex requests, new features, or unclear requirements. Triggers Socratic questioning before implementation.
 allowed-tools: Read, Glob, Grep
 ---
 
