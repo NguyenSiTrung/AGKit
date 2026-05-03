@@ -16,7 +16,7 @@
 This fork includes enhancements and additions on top of the original Antigravity Kit:
 
 - **25 Specialist Agents** — including `oracle`, `librarian`, `plan-consultant`, `plan-reviewer`, and `multimodal-analyst` (ported from OmO patterns)
-- **47 Skills** — expanded skill library with `conductor`, `beads`, `subagent-driven-development`, `verification-before-completion`, `using-git-worktrees`, `finishing-a-development-branch`, `receiving-code-review`, and more
+- **17 Skills** — curated workflow library with `conductor`, `subagent-driven-development`, `verification-before-completion`, `using-git-worktrees`, `finishing-a-development-branch`, `receiving-code-review`, and more
 - **32 Workflows** — full Conductor methodology support for context-driven development across sessions
 
 ---
@@ -45,7 +45,7 @@ git clone https://github.com/NguyenSiTrung/AGKit.git
 | Component      | Count | Description                                                          |
 | -------------- | ----- | -------------------------------------------------------------------- |
 | **Agents**     | 25    | Specialist AI personas (frontend, backend, security, PM, QA, etc.)   |
-| **Skills**     | 47    | Domain-specific knowledge modules                                    |
+| **Skills**     | 17    | Core development workflow and knowledge modules                      |
 | **Workflows**  | 32    | Slash command procedures                                             |
 
 ---
@@ -105,129 +105,58 @@ AI: 🤖 Using @debugger for systematic analysis...
 
 ---
 
-## 🧠 Skills (42)
+## 🧠 Skills (17)
 
 Skills are loaded automatically based on task context. Organized by domain:
 
 <details>
-<summary><strong>Frontend & UI</strong> (5 skills)</summary>
-
-| Skill                   | Description                                              |
-| ----------------------- | -------------------------------------------------------- |
-| `react-best-practices`  | React & Next.js performance optimization (57 rules)      |
-| `web-design-guidelines` | Web UI audit — 100+ rules for accessibility, UX, perf    |
-| `tailwind-patterns`     | Tailwind CSS v4 utilities                                |
-| `frontend-design`       | UI/UX patterns, design systems                           |
-| `ui-ux-pro-max`         | 50 styles, 21 palettes, 50 fonts                         |
-
-</details>
-
-<details>
-<summary><strong>Backend & API</strong> (4 skills)</summary>
-
-| Skill                   | Description                    |
-| ----------------------- | ------------------------------ |
-| `api-patterns`          | REST, GraphQL, tRPC            |
-| `nestjs-expert`         | NestJS modules, DI, decorators |
-| `nodejs-best-practices` | Node.js async, modules         |
-| `python-patterns`       | Python standards, FastAPI      |
-
-</details>
-
-<details>
-<summary><strong>Database</strong> (2 skills)</summary>
-
-| Skill             | Description                 |
-| ----------------- | --------------------------- |
-| `database-design` | Schema design, optimization |
-| `prisma-expert`   | Prisma ORM, migrations      |
-
-</details>
-
-<details>
-<summary><strong>Testing & Quality</strong> (5 skills)</summary>
-
-| Skill                   | Description              |
-| ----------------------- | ------------------------ |
-| `testing-patterns`      | Jest, Vitest, strategies |
-| `webapp-testing`        | E2E, Playwright          |
-| `tdd-workflow`          | Test-driven development  |
-| `code-review-checklist` | Code review standards    |
-| `lint-and-validate`     | Linting, validation      |
-
-</details>
-
-<details>
-<summary><strong>Security</strong> (2 skills)</summary>
-
-| Skill                   | Description              |
-| ----------------------- | ------------------------ |
-| `vulnerability-scanner` | Security auditing, OWASP |
-| `red-team-tactics`      | Offensive security       |
-
-</details>
-
-<details>
-<summary><strong>Architecture & Planning</strong> (6 skills)</summary>
-
-| Skill                   | Description                              |
-| ----------------------- | ---------------------------------------- |
-| `app-builder`           | Full-stack app scaffolding               |
-| `architecture`          | System design patterns                   |
-| `plan-writing`          | Task planning, breakdown                 |
-| `brainstorming`         | Socratic questioning                     |
-| `intent-classification` | Request analysis, intent routing         |
-| `delegation-patterns`   | Agent delegation protocol, task routing  |
-
-</details>
-
-<details>
-<summary><strong>Project Management</strong> (2 skills)</summary>
-
-| Skill       | Description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| `conductor` | Context-driven development, spec-first coding, TDD tracks      |
-| `beads`     | Git-backed issue tracker, multi-session persistent memory       |
-
-</details>
-
-<details>
-<summary><strong>Development Workflow</strong> (5 skills, ported from obra/superpowers)</summary>
+<summary><strong>Agent Coordination & Workflow</strong> (10 skills)</summary>
 
 | Skill                            | Description                                              |
 | -------------------------------- | -------------------------------------------------------- |
 | `subagent-driven-development`    | Dispatch subagent per task with two-stage review          |
+| `dispatching-parallel-agents`    | Multi-task coordination and execution                    |
+| `executing-plans`                | Systematically execute structured development plans      |
 | `verification-before-completion` | Evidence-based verification before declaring done         |
-| `using-git-worktrees`            | Isolated worktree workspaces for feature development      |
 | `finishing-a-development-branch` | Structured branch completion: verify, merge/PR, cleanup   |
 | `receiving-code-review`          | How to respond to PR review feedback                      |
+| `requesting-code-review`         | Process for opening PRs and requesting reviews            |
+| `test-driven-development`        | Core methodology for implementing features/fixes          |
+| `systematic-debugging`           | Rigorous debugging workflow                               |
+| `using-git-worktrees`            | Isolated worktree workspaces for feature development      |
 
 </details>
 
 <details>
-<summary><strong>Other</strong> (16 skills)</summary>
+<summary><strong>Project Management & Context</strong> (2 skills)</summary>
 
-| Skill                     | Description                 |
-| ------------------------- | --------------------------- |
-| `mobile-design`           | Mobile UI/UX patterns       |
-| `game-development`        | Game logic, mechanics       |
-| `seo-fundamentals`        | SEO, E-E-A-T, Core Web Vitals |
-| `geo-fundamentals`        | GenAI optimization          |
-| `bash-linux`              | Linux commands, scripting   |
-| `powershell-windows`      | Windows PowerShell          |
-| `git-master`              | Atomic commits, rebase, history |
-| `typescript-expert`       | Type-level programming      |
-| `docker-expert`           | Containerization, Compose   |
-| `deployment-procedures`   | CI/CD, deploy workflows     |
-| `server-management`       | Infrastructure management   |
-| `clean-code`              | Coding standards (Global)   |
-| `behavioral-modes`        | Agent personas              |
-| `parallel-agents`         | Multi-agent patterns        |
-| `mcp-builder`             | Model Context Protocol      |
-| `documentation-templates` | Doc formats                 |
+| Skill                 | Description                                                    |
+| --------------------- | -------------------------------------------------------------- |
+| `conductor`           | Context-driven development, spec-first coding, TDD tracks      |
+| `using-superpowers`   | Establishing how to find and use AI capabilities efficiently   |
 
 </details>
 
+<details>
+<summary><strong>Planning & Advisory</strong> (4 skills)</summary>
+
+| Skill                 | Description                              |
+| --------------------- | ---------------------------------------- |
+| `brainstorming`       | Socratic questioning & discovery         |
+| `writing-plans`       | Task planning, breakdown, & structure    |
+| `oracle`              | Strategic technical advisor              |
+| `librarian`           | OSS docs & research                      |
+
+</details>
+
+<details>
+<summary><strong>Agent Customization</strong> (1 skill)</summary>
+
+| Skill                 | Description                              |
+| --------------------- | ---------------------------------------- |
+| `writing-skills`      | Creating, editing, and verifying skills  |
+
+</details>
 ---
 
 ## 🔄 Workflows (32)
@@ -283,7 +212,7 @@ Invoke with slash commands in your AI editor:
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 25                            |
-| **Total Skills**    | 47                            |
+| **Total Skills**    | 17                            |
 | **Total Workflows** | 32                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~95% web/mobile development   |
